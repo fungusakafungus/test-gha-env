@@ -25,4 +25,4 @@ jobs:
         run: |
           echo "<VAR1=$VAR1>"
           echo "<VAR2=$VAR2>"
-          cat /proc/$$/environ | xargs -0
+          cat /proc/$$/environ | xargs -0 -n1
