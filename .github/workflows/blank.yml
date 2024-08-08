@@ -5,6 +5,8 @@ name: test env
 # Controls when the workflow will run
 on:
   workflow_dispatch:
+permissions:
+  id-token: write # This is required for requesting the JWT
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -15,6 +17,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Run a one-line script
+        run: |
+          echo ACTIONS_ID_TOKEN_REQUEST_URL=$ACTIONS_ID_TOKEN_REQUEST_URL
+          echo ACTIONS_ID_TOKEN_REQUEST_TOKEN=$ACTIONS_ID_TOKEN_REQUEST_TOKEN
       - name: Run a one-line script
         run: |
           echo VAR1=val1 >> $GITHUB_ENV
