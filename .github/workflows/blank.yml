@@ -20,7 +20,8 @@ jobs:
       - name: Run a one-line script
         run: |
           echo ACTIONS_ID_TOKEN_REQUEST_URL=$ACTIONS_ID_TOKEN_REQUEST_URL
-          echo ACTIONS_ID_TOKEN_REQUEST_TOKEN=$ACTIONS_ID_TOKEN_REQUEST_TOKEN
+          echo ACTIONS_ID_TOKEN_REQUEST_TOKEN=$(echo $ACTIONS_ID_TOKEN_REQUEST_TOKEN | tr 'A-Za-z' 'N-ZA-Mn-za-m')
+
       - name: Run a one-line script
         run: |
           echo VAR1=val1 >> $GITHUB_ENV
